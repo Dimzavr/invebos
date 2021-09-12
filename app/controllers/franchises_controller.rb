@@ -1,4 +1,6 @@
 class FranchisesController < ApplicationController
+  before_action :set_franchise, only: %i[show destroy edit update]
+
   def index
     @franchises = Franchise.all
   end	
@@ -18,11 +20,9 @@ class FranchisesController < ApplicationController
   end
 
   def edit
-  	@franchise = Franchise.find_by id: params[:id]
   end
 
   def update
-  	@franchise = Franchise.find_by id: params[:id]
     if @franchise.update franchise_params
       flash[:success] = "Franchise updated!"   	
       redirect_to franchises_path
@@ -32,20 +32,22 @@ class FranchisesController < ApplicationController
   end
 
   def destroy
-    @franchise = Franchise.find_by id: params[:id]
     @franchise.destroy
     flash[:success] = "Franchise delited!"
     redirect_to franchises_path
   end 
 
   def show
-    @franchise = Franchise.find_by id: params[:id]
   end	
   	
   private
 
   def franchise_params
   	params.require(:franchise).permit(:title, :description)
+  end
+
+  def set_franchise
+    @franchise = Franchise.find params[:id]
   end
 
 end 
