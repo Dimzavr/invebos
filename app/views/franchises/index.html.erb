@@ -1,0 +1,18 @@
+<h1>Franchises</h1>
+
+
+<% @franchises.each do |franchise| %>
+  <h2><%= franchise.title %></h2>
+
+  <time datetime="<%= franchise.formatted_created_at %>">
+    <%= franchise.formatted_created_at %>
+  </time>
+
+  <p>
+  	<%= franchise.description %>
+  	<br> 
+  	<%= link_to 'Show', franchise_path(franchise.id) %> |
+  	<%= link_to 'Edit', edit_franchise_path(franchise.id) %> |
+  	<%= link_to 'Destroy', franchise_path(franchise.id), data: {method: :delete, confirm: 'Are you sure?'}  %>
+  </p>	
+<% end %>
