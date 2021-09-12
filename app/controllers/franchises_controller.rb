@@ -10,6 +10,7 @@ class FranchisesController < ApplicationController
   def create
     @franchise = Franchise.new franchise_params
     if @franchise.save
+      flash[:success] = "Franchise created!"	
       redirect_to franchises_path
     else
       render :new  
@@ -23,6 +24,7 @@ class FranchisesController < ApplicationController
   def update
   	@franchise = Franchise.find_by id: params[:id]
     if @franchise.update franchise_params
+      flash[:success] = "Franchise updated!"   	
       redirect_to franchises_path
     else
       render :edit  
@@ -32,6 +34,7 @@ class FranchisesController < ApplicationController
   def destroy
     @franchise = Franchise.find_by id: params[:id]
     @franchise.destroy
+    flash[:success] = "Franchise delited!"
     redirect_to franchises_path
   end 
 

@@ -1,18 +1,26 @@
-<h1>Franchises</h1>
+<h1 class="mb-4">Franchises</h1>
 
+<%= link_to "New franchise", new_franchise_path, class: 'btn btn-outline-info' %>
 
 <% @franchises.each do |franchise| %>
-  <h2><%= franchise.title %></h2>
+  <article class="card mt-3">
+  	<div class="card-body">
+      <h4><%= franchise.title %></h4>
 
-  <time datetime="<%= franchise.formatted_created_at %>">
-    <%= franchise.formatted_created_at %>
-  </time>
+      <section class="card-text">
+	    <time datetime="<%= franchise.formatted_created_at %>">
+		  <small><%= franchise.formatted_created_at %></small>
+		</time>
 
-  <p>
-  	<%= franchise.description %>
-  	<br> 
-  	<%= link_to 'Show', franchise_path(franchise.id) %> |
-  	<%= link_to 'Edit', edit_franchise_path(franchise.id) %> |
-  	<%= link_to 'Destroy', franchise_path(franchise.id), data: {method: :delete, confirm: 'Are you sure?'}  %>
-  </p>	
+		<p class="my-2">
+		  <%= franchise.description %>
+		</p> 
+	  </section> 
+
+	  	<%= link_to 'Show', franchise_path(franchise.id), class: 'btn btn-primary' %> |
+	  	<%= link_to 'Edit', edit_franchise_path(franchise.id), class: 'btn btn-secondary' %> |
+	  	<%= link_to 'Destroy', franchise_path(franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %>
+    </div>
+  </article>  
+  	
 <% end %>
