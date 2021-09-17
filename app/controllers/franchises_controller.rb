@@ -2,7 +2,8 @@ class FranchisesController < ApplicationController
   before_action :set_franchise, only: %i[show destroy edit update]
 
   def index
-    @franchises = Franchise.order(created_at: :desc).page params[:page]
+    #gem Page
+    @pagy, @franchises = pagy Franchise.order(created_at: :desc)
   end	
 
   def new

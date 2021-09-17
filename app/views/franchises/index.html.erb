@@ -3,12 +3,12 @@
 
 <h1 class="mb-4">Franchises</h1>
 
-<%= link_to "New franchise", new_franchise_path, class: 'btn btn-outline-info' %>
+<%= link_to "New franchise", new_franchise_path, class: 'btn btn-outline-info btn-lg mb-3' %>
 
-<%= paginate @franchises %>
+<%== pagy_bootstrap_nav @pagy %>
 
 <% @franchises.each do |franchise| %>
-  <article class="card mt-3">
+  <article class="card my-3">
   	<div class="card-body">
       <h4><%= franchise.title %></h4>
 
@@ -30,4 +30,4 @@
   	
 <% end %>
 
-<%= paginate @franchises %>
+<%== pagy_bootstrap_nav @pagy %>
