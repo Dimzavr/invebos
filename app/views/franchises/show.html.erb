@@ -6,9 +6,9 @@
   <%= @franchise.formatted_created_at %>
 </time>
 
-<p class="lead my-3">  	
-  <%= @franchise.description %>
-</p>  
+<div class="lead my-3">  	
+  <%= sanitize @franchise.description %>
+</div>  
 
 
 <%= link_to 'Show', franchise_path(@franchise.id), class: 'btn btn-primary' %> |

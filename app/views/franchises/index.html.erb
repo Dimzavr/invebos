@@ -5,6 +5,8 @@
 
 <%= link_to "New franchise", new_franchise_path, class: 'btn btn-outline-info' %>
 
+<%= paginate @franchises %>
+
 <% @franchises.each do |franchise| %>
   <article class="card mt-3">
   	<div class="card-body">
@@ -16,7 +18,7 @@
 		</time>
 
 		<p class="my-2">
-		  <%= franchise.description %>
+		  <%= truncate strip_tags(franchise.description), length: 120, omission: '...(Continued)'  %>
 		</p> 
 	  </section> 
 
@@ -27,3 +29,5 @@
   </article>  
   	
 <% end %>
+
+<%= paginate @franchises %>
