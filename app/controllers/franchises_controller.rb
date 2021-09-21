@@ -4,6 +4,7 @@ class FranchisesController < ApplicationController
   def index
     #gem Page
     @pagy, @franchises = pagy Franchise.order(created_at: :desc)
+    @franchises = @franchises.decorate
   end	
 
   def new
@@ -39,6 +40,7 @@ class FranchisesController < ApplicationController
   end 
 
   def show
+    @franchise = @franchise.decorate
   end	
   	
   private
