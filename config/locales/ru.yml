@@ -1,0 +1,94 @@
+ru:
+  activerecord:
+    attributes:
+      franchise:
+        description: Описание
+        title: Заголовок
+      user:
+        created_at: Создан
+        email: Email
+        name: Имя
+        old_password: Старый пароль
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        updated_at: Обновлён
+    models:
+      franchise: Франшиза
+  admin:
+    users:
+      create:
+        success: Пользователи загружены!
+      index:
+        download_zipped: Загрузить архив с XLSX
+        title: Управление пользователями
+        upload_form:
+          archive: Выберите архив
+          submit: Загрузить!
+        upload_zipped: Загрузить пользователей в XLSX
+  en: Английский
+  global:
+    button:
+      delete: Удалить
+      edit: Изменить
+      show: Показать
+      submit: Отправить
+    dialog:
+      you_sure: Вы уверены?
+    flash:
+      already_signed_in: Вы уже вошли в систему!
+      not_signed_in: Вы не вошли в систему!
+    text:
+      omission: "... (далее)"
+  menu:
+    edit_profile: Профиль
+    home: Главная
+    log_in: Войти
+    log_out: Выйти
+    franchises: Франшизы
+    sign_up: Регистрация
+    users: Пользователи
+  pages:
+    index:
+      title: Добро пожаловать в Invebos!
+  franchises:
+    create:
+      success: Франшиза создана!
+    destroy:
+      success: Франшиза удалёна!
+    edit:
+      title: Редактировать франшизу
+    index:
+      new: Новая франшиза
+      title: Франшизы
+    new:
+      title: Новая франшиза
+    show:
+    update:
+      success: Франшиза обновлёна!
+  ru: Русский
+  sessions:
+    create:
+      invalid_creds: Неверный email и/или пароль!
+      success: С возвращением, %{name}!
+    destroy:
+      success: До новых встреч!
+    new:
+      form:
+        email: Email
+        password: Пароль
+        remember_me: Запомнить меня
+        submit: Войти!
+      title: Войти
+  users:
+    create:
+      success: Добро пожаловать, %{name}!
+    edit:
+      title: Редактировать профиль
+    global:
+      forms:
+        register: Регистрация
+        save: Сохранить
+    new:
+      title: Регистрация
+    update:
+      success: Ваш профиль был обновлён!

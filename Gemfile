@@ -14,7 +14,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '6.0.0.beta.7'
+gem 'webpacker', '6.0.0.rc.5'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -32,6 +32,9 @@ gem 'rubyzip', '~> 2'
 gem 'caxlsx', '~> 3.1'
 gem 'caxlsx_rails', '~> 0.6'
 gem 'rubyXL', '~> 3.4'
+gem 'rails-i18n', '~> 6'
+gem 'lokalise_rails', '~> 2'
+gem 'dotenv-rails', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
