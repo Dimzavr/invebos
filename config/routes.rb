@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   resources :franchises
 
+  namespace :admin do
+    resources :users, only: %i[index create]
+  end
   root 'pages#index'
 end
