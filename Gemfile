@@ -36,6 +36,7 @@ gem 'rails-i18n', '~> 6'
 gem 'lokalise_rails', '~> 2'
 gem 'dotenv-rails', '~> 2.7'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

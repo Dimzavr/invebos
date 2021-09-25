@@ -19,8 +19,20 @@
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/pagination";
 @import "bootstrap/scss/alert";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/images";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
 @import '../styles/custom.scss';
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
