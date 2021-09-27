@@ -16,7 +16,7 @@ class FranchisesController < ApplicationController
   def create
     @franchise = current_user.franchises.build franchise_params
     if @franchise.save
-      flash[:success] = 'Franchise created!'
+      flash[:success] = ('Franchise created!')
       redirect_to franchises_path
     else
       render :new
