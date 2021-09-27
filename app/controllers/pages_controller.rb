@@ -5,5 +5,8 @@ class PagesController < ApplicationController
   end
 
   def pricing;
-  end  
+  end 
+
+  def add
+  end 
 end

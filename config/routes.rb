@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     end
     root 'pages#index'
     get '/pricing' => 'pages#pricing'
+    get '/add' => 'pages#add'
   end  
 end

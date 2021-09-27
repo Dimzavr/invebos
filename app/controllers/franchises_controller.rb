@@ -10,7 +10,7 @@ class FranchisesController < ApplicationController
   end
 
   def new
-    @franchise = Franchise.new
+    @franchise = current_user.franchises.build           #Franchise.new
   end
 
   def create
@@ -47,7 +47,7 @@ class FranchisesController < ApplicationController
   private
 
   def franchise_params
-    params.require(:franchise).permit(:title, :description)
+    params.require(:franchise).permit(:title, :description, :investment, :franchise_type, :location, :franchise_author, :about_company, :cost_franchise, :contribution_franchise, :royality_franchise, :unp_franchise, :additionally_franchise, :avatar)
   end
 
   def set_franchise
