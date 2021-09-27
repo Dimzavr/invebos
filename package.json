@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.5.0",
     "css-loader": "^6.3.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
+    "jquery": "^3.6.0",
     "mini-css-extract-plugin": "^2.3.0",
     "postcss": "^8.3.7",
     "postcss-flexbugs-fixes": "^5.0.2",
