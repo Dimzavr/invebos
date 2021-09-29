@@ -11,5 +11,8 @@ class PagesController < ApplicationController
   end 
 
   def business_magazine;
-  end  
+  end 
+
+  def about;
+  end   
 end

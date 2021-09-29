@@ -1,61 +1,62 @@
 <nav class="panel">
-  <p class="text-uppercase has-text-gray pv1 f6">filter by franchise type</p>
-
+  <p class="text-uppercase has-text-blaeck- pv1 f6">Filter by franchise type</p>
+  <div class="btn-group-vertical">
   <ul class="mb3 pa0">
     <li class="pv1">
-      <%= link_to 'All', franchises_path, class: "button is-fullwidth is-dark" %>
+      <%= link_to 'All', franchises_path, class: 'btn btn-outline-primary' %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Auto', franchises_path(id_franchise_type: "Auto"), class: "button is-fullwidth is-primary" %>
+      <%= link_to 'Auto', franchises_path(id_franchise_type: "Auto"), class: "btn btn-outline-secondary" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Childrens franchises', franchises_path(id_franchise_type: "Childrens franchises"), class: "button is-fullwidth is-link" %>
+      <%= link_to 'Childrens franchises', franchises_path(id_franchise_type: "Childrens franchises"), class: "btn btn-outline-success" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Medicine', franchises_path(id_franchise_type: "Medicine"), class: "button is-fullwidth is-warning" %>
+      <%= link_to 'Medicine', franchises_path(id_franchise_type: "Medicine"), class: "btn btn-outline-danger" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Internet and IT', franchises_path(id_ranchise_type: "Internet and IT"), class: "button is-fullwidth is-info" %>
+      <%= link_to 'Internet and IT', franchises_path(id_ranchise_type: "Internet and IT"), class: "btn btn-outline-warning" %>
     </li>
     <li class="pv1">
-      <%= link_to 'Training and education', franchises_path(id_franchise_type: "Training and education"), class: "button is-fullwidth is-primary" %>
-    </li>
-
-    <li class="pv1">
-      <%= link_to 'Recreation and entertainment', franchises_path(id_franchise_type: "Recreation and entertainment"), class: "button is-fullwidth is-link" %>
+      <%= link_to 'Training and education', franchises_path(id_franchise_type: "Training and education"), class: "btn btn-outline-info" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Nutrition', franchises_path(id_franchise_type: "Nutrition"), class: "button is-fullwidth is-warning" %>
+      <%= link_to 'Recreation and entertainment', franchises_path(id_franchise_type: "Recreation and entertainment"), class: "btn btn-outline-dark" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Production', franchises_path(id_franchise_type: "Production"), class: "button is-fullwidth is-info" %>
+      <%= link_to 'Nutrition', franchises_path(id_franchise_type: "Nutrition"), class: "btn btn-outline-primary" %>
+    </li>
+
+    <li class="pv1">
+      <%= link_to 'Production', franchises_path(id_franchise_type: "Production"), class: "btn btn-outline-secondary" %>
     </li>
        <li class="pv1">
-      <%= link_to 'Retail', franchises_path(id_franchise_type: "Retail"), class: "button is-fullwidth is-info" %>
+      <%= link_to 'Retail', franchises_path(id_franchise_type: "Retail"), class: "btn btn-outline-success" %>
     </li>
     <li class="pv1">
-      <%= link_to 'Sports, health and beauty', franchises_path(id_franchise_type: "Sports, health and beauty"), class: "button is-fullwidth is-primary" %>
-    </li>
-
-    <li class="pv1">
-      <%= link_to 'Construction', franchises_path(id_franchise_type: "Construction"), class: "button is-fullwidth is-link" %>
+      <%= link_to 'Sports, health and beauty', franchises_path(id_franchise_type: "Sports, health and beauty"), class: "btn btn-outline-danger" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Business services (b2b)', franchises_path(id_franchise_type: "Business services (b2b)"), class: "button is-fullwidth is-warning" %>
+      <%= link_to 'Construction', franchises_path(id_franchise_type: "Construction"), class: "btn btn-outline-warning" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Services for the public', franchises_path(id_franchise_type: "Services for the public"), class: "button is-fullwidth is-info" %>
+      <%= link_to 'Business services (b2b)', franchises_path(id_franchise_type: "Business services (b2b)"), class: "btn btn-outline-info" %>
+    </li>
+
+    <li class="pv1">
+      <%= link_to 'Services for the public', franchises_path(id_franchise_type: "Services for the public"), class: "btn btn-outline-dark" %>
     </li>
     <li class="pv1">
-      <%= link_to 'Financial services', franchises_path(id_franchise_type: "Financial services"), class: "button is-fullwidth is-info" %>
+      <%= link_to 'Financial services', franchises_path(id_franchise_type: "Financial services"), class: "btn btn-outline-danger" %>
     </li>
   </ul>
+</div>
 </nav>

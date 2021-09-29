@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root 'pages#index'
     get '/pricing' => 'pages#pricing'
     get '/add' => 'pages#add'
+    get '/about' => 'pages#about'
     get '/business_magazine' => 'pages#business_magazine'
 
   end  

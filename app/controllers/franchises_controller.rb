@@ -7,8 +7,8 @@ class FranchisesController < ApplicationController
     if (params.has_key?(:franchise_type))
       @franchises = Franchise.where(franchise_type: params[:franchise_type]).order("created_at desc")
     else  
-    @pagy, @franchises = pagy Franchise.order(created_at: :desc)
-    @franchises = @franchises.decorate
+      @pagy, @franchises = pagy Franchise.order(created_at: :desc)
+      @franchises = @franchises.decorate
     end
   end
 
