@@ -12,6 +12,7 @@ import '@popperjs/core'
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
+
 require('bootstrap-icons/font/bootstrap-icons.css');
 
 Rails.start()

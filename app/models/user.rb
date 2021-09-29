@@ -2,6 +2,9 @@
 
 class User < ApplicationRecord
   attr_accessor :old_password, :remember_token
+  has_one_attached :avatar#, service: :s3
+    
+  
 
   has_secure_password validations: false
 
@@ -16,6 +19,9 @@ class User < ApplicationRecord
   validate :password_complexity
 
   before_save :set_gravatar_hash, if: :email_changed?
+
+   
+
 
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64

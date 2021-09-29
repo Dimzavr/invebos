@@ -7,6 +7,9 @@ class PagesController < ApplicationController
   def pricing;
   end 
 
-  def add
+  def add;
   end 
+
+  def business_magazine;
+  end  
 end

@@ -6,7 +6,7 @@
 #  Franchise.create title: title, description: description
 #end
 
-User.find_each do |u|
-  u.send(:set_gravatar_hash)
-  u.save
-end
+#User.find_each do |u|
+#  u.send(:set_gravatar_hash)
+#  u.save
+#end

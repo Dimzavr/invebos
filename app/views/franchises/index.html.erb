@@ -3,10 +3,63 @@
 
 <h1 class="mb-4">Franchises</h1>
 
-<%= link_to "New franchise", new_franchise_path, class: 'btn btn-outline-info btn-lg mb-3' %>
+
 
 <%= pagination @pagy %>
 
 <%= render @franchises %>
 
 <%= pagination @pagy %>
+
+
+
+<!--------------------------------------------->
+
+
+<div class="columns border-top">
+
+  <div class="column is-2 bg-light">
+    <div class="pl3 pr1">
+      <%= render 'panel' %>
+    </div>
+  </div>
+
+  <div class="column is-9 pl6">
+    <% @franchises.each do |franchise| %>
+    <div class="columns border-bottom pt4">
+      <div class="column is-1">
+        <% if !franchise.avatar.file.nil? %>
+          <%= link_to image_tag(franchise.avatar_url(:thumb), alt: franchise.franchise_author, width: 100, height: 100) %>
+        <% end %>
+      </div>
+      <div class="column is-8">
+        <h3 class="title is-4 index-title"><%= link_to franchise.title, franchise %></h3>
+          <ul>
+            <li><%= link_to franchise.franchise_author %></li>
+          </ul>
+        <div class="pv2 f6">
+          <%= sanitize(franchise.description.truncate(200, separator: '</p>')) %>
+        </div>
+
+        <% if current_user.try(:admin) || franchise_author(franchise) %>
+          <ul class="pv3">
+            <li class="inline-block f6">Admin controls: </li>
+            <li class="inline-block">
+              <%= link_to 'View', franchise, class: 'button is-small is-link is-outlined' %></li>
+            <li class="inline-block">
+              <%= link_to 'Edit', edit_franchise_path(franchise), class: 'button is-small is-link is-outlined' %></li>
+            <li class="inline-block">
+              <%= link_to 'Delete', franchise, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-link is-outlined' %></li>
+          </ul>
+        <% end %>
+
+        </div>
+        <div class="column has-text-right">
+          <%= franchise_type(franchise.franchise_type) %>
+          <p class="pt2 f6"><%= franchise.location %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

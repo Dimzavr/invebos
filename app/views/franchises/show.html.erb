@@ -1,26 +1,81 @@
 <% provide :page_title, "Show Franchises" %>
 <% currently_at t('menu.franchises') %>
 
-<h1 class="mb-4"><%= @franchise.title %></h1>
 
-
-<time datetime="<%= @franchise.formatted_created_at %>">
-  <%= @franchise.formatted_created_at %>
-</time>
-
-<div class="lead my-3">  	
-  <%= sanitize @franchise.description %>
-</div>  
-
-<div class="mb-3">
-  <%= @franchise.user.gravatar %>
-  <%= @franchise.user.name_or_email %>
-</div>  
-
-<div class="border-top border-bottom py-3">
-  <div class="btn-group">
-  <%= link_to 'Show', franchise_path(@franchise.id), class: 'btn btn-primary' %> |
-  <%= link_to 'Edit', edit_franchise_path(@franchise.id), class: 'btn btn-secondary' %> |
-  <%= link_to 'Destroy', franchise_path(@franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %>
+<div class="container">
+  <div class="row">  
+    <div class="col-8">
+      <h1 class="mb-4"><%= @franchise.title %></h1>
+      <p class="f7"><i class="fa fa-clock"></i> Posted <%= time_ago_in_words(@franchise.created_at) %> ago</p>
+      <div class="lead my-3">  	
+        <%= sanitize @franchise.description %>
+      </div>  
+      <div class="mb-3">
+        <%= @franchise.user.gravatar %>
+        <%= @franchise.user.name_or_email %>
+      </div>  
+    </div>
+     <div class="col-4">
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+          <% if current_user.try(:admin) || franchise_author(@franchise) %>
+            <div class="card-header"><h4>Admin controls:</h4></div>
+              <div class="card-body text-success"> 
+                <p class="card-text"><%= link_to 'Show', franchise_path(@franchise.id), class: 'btn btn-primary' %> |
+                  <%= link_to 'Edit', edit_franchise_path(@franchise.id), class: 'btn btn-secondary' %> |
+                  <%= link_to 'Destroy', franchise_path(@franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %></p>
+          <% end %>         
+        </div>
+      </div> 
+    </div>
   </div>
-</div>  
+</div><br><br>  
+
+
+
+
+
+
+
+<!------------------------------------------------------>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <p class="f7"><i class="fa fa-clock"></i> Posted <%= time_ago_in_words(@franchise.created_at) %> ago</p>
+      <h1 class="title is-2"><%= @franchise.title %></h1>
+      <ul class="list pb-4">
+        <li class="inline-block f6 pr2"><%= franchise_type(@franchise.franchise_type) %></li>
+        <li class="inline-block f6 ph2"><i class="fa fa-pin"></i> <%= @franchise.location %></li>
+      </ul>
+      <div class="content text-serif f4">
+        <%= @franchise.description.html_safe %>
+      </div>
+    </div>  
+      <div class="col-4">
+        <% if !@franchise.avatar.file.nil? %>
+          <%= link_to image_tag(@franchise.avatar_url(:thumb), alt: @franchise.franchise_author, class: "has-text-centered") %>
+        <% end %>
+        <h5 class="is-5 has-text-centered"><%= link_to @franchise.franchise_author %></h5>
+        <%= link_to 'Apply to this job', class:"button is-rounded is-fullwidth is-link" %>
+        <% if current_user.try(:admin) || franchise_author(@franchise) %>
+          <ul class="pv3">
+            <li class="pv1 f6">Admin controls: </li>
+            <li class="pv1 inline-block">
+              <%= link_to 'View', @franchise, class: 'button is-small is-link is-outlined' %></li>
+           <li class="pv1 inline-block">
+              <%= link_to 'Edit', edit_franchise_path(@franchise), class: 'button is-small is-link is-outlined' %></li>
+           <li class="pv1 inline-block">
+              <%= link_to 'Delete', @franchise, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-link is-outlined' %></li>
+          </ul>
+        <% end %>
+    </div>    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

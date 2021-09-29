@@ -16,8 +16,21 @@
       <%= truncate strip_tags(franchise.description), length: 120, omission: '...(Continued)'  %>
     </p> 
   </section> 
-    <%= link_to 'Show', franchise_path(franchise.id), class: 'btn btn-primary' %> |
-    <%= link_to 'Edit', edit_franchise_path(franchise.id), class: 'btn btn-secondary' %> |
-    <%= link_to 'Destroy', franchise_path(franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %>
+     <div class="card border-success mb-3" style="max-width: 18rem;">
+  <% if current_user.try(:admin) || franchise_author(franchise) %>
+  <div class="card-header"><h4>Admin controls:</h4></div>
+  <div class="card-body text-success">
+    
+    <p class="card-text"><%= link_to 'Show', franchise_path(franchise.id), class: 'btn btn-primary' %> |
+          <%= link_to 'Edit', edit_franchise_path(franchise.id), class: 'btn btn-secondary' %> |
+          <%= link_to 'Destroy', franchise_path(franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %></p>
+   <% end %>         
+  </div>
+</div> 
     </div>
-</article>  
+</article> 
+
+
+
+
+

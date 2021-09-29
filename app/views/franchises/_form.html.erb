@@ -1,25 +1,151 @@
 <%= render 'shared/errors', object: @franchise %>
 
-</div>
-<%= form_with model: @franchise do |f| %>
-  <div class="mb-3 row">
-    <div class="'col-sm-2 col-form-label'">
-      <%= f.label :title%>
-    </div>
-    <div class="col-sm-10">
-      <%= f.text_field :title,  placeholder: "Name franchise", class: 'form-control' %>
-    </div>
-  </div>  
-  
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-    <%= f.label :description %>
 
-    <div class="col-sm-10">
-      <%= f.text_area :description, class: 'form-control' %>
+
+
+
+<div class="container border border-success rounded">
+  <%= form_with model: @franchise do |f| %>
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-1 col-form-label">
+        <%= f.label :title%>
+      </div>
+      <div class="col-sm-11">
+        <%= f.text_field :title,  placeholder: "Name franchise", class: 'form-control' %>
+      </div>
+    </div>  
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-4 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-cash-coin"></i>
+          </span>
+        <%= f.label :cost_franchise%>
+        <%= f.text_field :cost_franchise,  placeholder: "Cost franchise", class: 'form-control' %>
+      </div> 
+      <div class="col-sm-4 col-form-label">
+        <%= f.label :contribution_franchise%>
+        <%= f.text_field :contribution_franchise,  placeholder: "Contribution", class: 'form-control' %>
+      </div>
+      <div class="col-sm-4 col-form-label">
+        <%= f.label :royality_franchise%>
+        <%= f.text_field :royality_franchise,  placeholder: "Royality", class: 'form-control' %>
+      </div>
     </div> 
-  </div>  
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-2 col-form-label"> 
+       <span class="icon is-small is-left">
+              <i class="fa fa-briefcase"></i>
+            </span>   
+        <%= f.label :franchise_type%>
+      </div>  
+      <div class="col-sm-4  ">  
+        <%= f.select :city, ["Auto","Children's franchises", "Medicine", "Internet and IT", "Training and education","Recreation and entertainment","Nutrition","Production","Retail","Sports, health and beauty","Construction","Business services (b2b)","Services for the public","Financial services"] %>
+        
+      </div>
+    </div>  
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-6 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-geo-alt-fill"></i>
+          </span>
+        <%= f.label :location%>   
+        <%= f.text_field :location,  placeholder: "San Francisco, CA, Seattle, Anywhere", class: 'form-control' %>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-1 col-form-label">
+        <%= f.label :description%>
+      </div>
+      <div class="colm-sm-11">
+        <%= f.text_area :description, placeholder: "Franchise description" ,size: "300x5", class: 'form-control' %>
+      </div> 
+    </div> 
+    
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-6 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-currency-dollar"></i>
+          </span>
+        <%= f.label :investment%>   
+        <%= f.text_field :investment,  placeholder: "Investment", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="mb-4 row">
+      <div class="col-sm-2 col-form-label">
+         <span class="icon is-small is-left">
+              <i class="bi bi-image"></i>
+          </span>
+        <%= f.label :image %>
+      </div>
+      <div class="colm-sm-10">
+        <%= f.file_field :image , placeholder: "Image" , class: 'form-control' %>
+      </div> 
+    </div> 
+
+    <hr>
+
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-6 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-building"></i>
+          </span>
+        <%= f.label :franchise_author%>   
+        <%= f.text_field :franchise_author,  placeholder: "Company", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <div class="col-sm-2 col-form-label">
+         <span class="icon is-small is-left">
+              <i class="bi bi-file-person-fill"></i>
+          </span>
+        <%= f.label :about_company%>
+      </div>
+      <div class="colm-sm-10">
+        <%= f.text_area :about_company, placeholder: "About company" ,size: "300x5", class: 'form-control' %>
+      </div> 
+    </div> 
+
+    
+    <div class=" row mb-3 mt-4">
+      <div class="col-sm-6 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-file-plus-fill"></i>
+          </span>
+        <%= f.label :additionally_franchise%>
+        <%= f.text_field :additionally_franchise,  placeholder: "Additionally franchise", class: 'form-control' %>
+      </div> 
+      <div class="col-sm-6 col-form-label">
+        <span class="icon is-small is-left">
+              <i class="bi bi-card-checklist"></i>
+        <%= f.label :unp%>
+        <%= f.text_field :unp_franchise,  placeholder: "UNP", class: 'form-control' %>
+      </div>
+    </div>  
+
+    <div class="mb-3 row">
+      <div class="col-sm-2 col-form-label">
+         <span class="icon is-small is-left">
+              <i class="bi bi-person-circle"></i>
+          </span>
+        <%= f.label :avatar %>
+      </div>
+      <div class="colm-sm-10">
+        <%= f.file_field :avatar , placeholder: "Avatar" , class: 'form-control' %>
+      </div> 
+    </div> 
 
 
-  <%= f.submit "Submit franchise", class: 'btn btn-primary' %> 
-<% end %>
+    <div class=" row mb-3 mt-4">           
+      <div class="col-sm-6">    
+        <%= f.submit "Submit franchise", class: 'btn btn-primary' %> 
+        <% end %>
+      </div>  
+    </div>    
+</div>
+
+
+
+
+

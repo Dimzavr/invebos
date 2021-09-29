@@ -12,7 +12,13 @@
           <% if user_signed_in? %>  
            <li><%= nav_tab 'Add', add_path,
             class: 'nav-link px-2', current_page: current_page %></li> 
-          <% end %>   
+          <li><%= nav_tab 'Business magazine', business_magazine_path,
+            class: 'nav-link px-2', current_page: current_page %></li>  
+          
+          
+            <li><%= nav_tab 'Admin', admin_users_path,
+            class: 'nav-link px-2', current_page: current_page %></li>   
+          <% end %> 
         </ul>
          
 

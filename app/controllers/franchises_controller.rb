@@ -4,17 +4,22 @@ class FranchisesController < ApplicationController
   before_action :set_franchise, only: %i[show destroy edit update]
 
   def index
-    # gem Page
+    if (params.has_key?(:franchise_type))
+      @franchises = Franchise.where(franchise_type: params[:franchise_type]).order("created_at desc")
+    else  
     @pagy, @franchises = pagy Franchise.order(created_at: :desc)
     @franchises = @franchises.decorate
+    end
   end
 
   def new
-    @franchise = current_user.franchises.build           #Franchise.new
+    @franchise = current_user.franchises.build        #Franchise.new
   end
 
   def create
     @franchise = current_user.franchises.build franchise_params
+    franchise = params[:franchise_type]
+    franchise_title = params[:title]
     if @franchise.save
       flash[:success] = 'Franchise created!'
       redirect_to franchises_path
@@ -47,10 +52,11 @@ class FranchisesController < ApplicationController
   private
 
   def franchise_params
-    params.require(:franchise).permit(:title, :description, :investment, :franchise_type, :location, :franchise_author, :about_company, :cost_franchise, :contribution_franchise, :royality_franchise, :unp_franchise, :additionally_franchise, :avatar)
+    params.require(:franchise).permit(:title, :description, :investment, :franchise_type, :location, :franchise_author, :about_company,  :contribution_franchise, :royality_franchise, :unp_franchise, :cost_franchise, :additionally_franchise, :avatar,images: [])
   end
 
   def set_franchise
     @franchise = Franchise.find params[:id]
   end
 end
+
