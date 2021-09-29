@@ -52,7 +52,7 @@ class FranchisesController < ApplicationController
   private
 
   def franchise_params
-    params.require(:franchise).permit(:title, :description, :investment, :franchise_type, :location, :franchise_author, :about_company,  :contribution_franchise, :royality_franchise, :unp_franchise, :cost_franchise, :additionally_franchise, :avatar,images: [])
+    params.require(:franchise).permit(:title, :description, :investment, :franchise_type, :location, :franchise_author, :about_company,  :contribution_franchise, :royality_franchise, :unp_franchise, :cost_franchise, :additionally_franchise, :avatar, :images )
   end
 
   def set_franchise
