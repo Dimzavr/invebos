@@ -35,10 +35,24 @@ gem 'rubyXL', '~> 3.4'
 gem 'rails-i18n', '~> 6'
 gem 'lokalise_rails', '~> 2'
 gem 'dotenv-rails', '~> 2.7'
+gem "aws-sdk-s3", require: false
+gem 'simple_form', '~> 5.1'
+gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem 'carrierwave', '~> 2.2'
+gem 'sidekiq', '~> 6.2'
+gem 'mini_magick', '~> 4.11'
+gem 'stripe', '~> 5.38'
+gem 'trix-rails', '~> 2.3'
+gem "figaro"
+gem 'cancancan', '~> 3.3'
+gem 'bulma', '~> 0.1.0'
+
+
+
 
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -46,6 +60,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'better_errors', '~> 2.9'
   gem 'faker', '~> 2'
   gem 'pry-rails'
 end
@@ -66,3 +81,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+

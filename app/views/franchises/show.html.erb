@@ -1,26 +1,109 @@
 <% provide :page_title, "Show Franchises" %>
 <% currently_at t('menu.franchises') %>
+<!------------------------------------------------------>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-8">
+          <h1 class="title is-2"><%= @franchise.title %></h1>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+        <ul class="list pb-1">
+          <li><h4>Location</h4></li>
+           <i class="bi bi-geo-alt-fill"></i> 
+          <%= @franchise.location %>
+          <%= @franchise.franchise_type %>
+        </ul>
+        <ul class="list pb-1">
+          <li><h4>Cost franchise</h4></li>
+          <%= @franchise.cost_franchise %>
+        </ul>
+        <ul class="list pb-1">
+          <li><h4>Royality franchise</h4>
+          <%= @franchise.royality_franchise %></li>
+        </ul> 
+        <ul class="list pb-1">
+          <li><h4>Contribution franchise</h4></li>
+           <%= @franchise.contribution_franchise %></li>
+        </ul>
+        <ul class="list pb-1">
+          <li><h4>Description</h4></li>
+          <div class="content text-serif f4">
+            <%= sanitize @franchise.description %>
+          </div>
+        </ul>
+        <ul class="list pb-1">
+          <li><h4>Additionally franchise</h4></li>
+          <%= @franchise.additionally_franchise %>
+        </ul> 
+        <ul class="list pb-1">
+          <li><h4>Investment</h4></li> 
+          <%= @franchise.investment %>
+        </ul>
+        <ul class="list pb-1">
+          <li><h4>UNP</h4></li> 
+          <%= @franchise.unp_franchise %>
+        </ul>   
+        <ul class="list pb-1">
+          <li><h4>About company</h4></h1>
+          <div class="content text-serif f4">
+            <%= sanitize @franchise.about_company %>
+          </div> 
+        </ul>     
+        <ul class="list pb-1"> 
+          <p class="f7"><i class="fa fa-clock"></i> Posted <%= time_ago_in_words(@franchise.created_at) %> ago</p>
+        </ul>  
+        <ul class="list pb-1">
+          <div class="mb-3">
+            <%= @franchise.user.gravatar %>
+            <%= @franchise.user.name_or_email %>
+          </div>
+        </ul>  
+        <ul class="list pb-1">
+          <div class="btn-group mb-3">
+              <%= link_to 'Apply to this job', "#",
+                  class: 'btn btn-dark btn-lg btn-block ' %>
+            </div>
+        </ul>  
+      </div>
+       
 
-<h1 class="mb-4"><%= @franchise.title %></h1>
+      <div class="col-4 ">
+        <% if !@franchise.avatar.file.nil? %>
+          <%= link_to image_tag(@franchise.avatar_url(:thumb), alt: @franchise.franchise_author, class: "m-x-auto") %>
+        <% end %>
+        <h5 class="is-5 has-text-centered"><%= link_to @franchise.franchise_author %></h5>
 
-
-<time datetime="<%= @franchise.formatted_created_at %>">
-  <%= @franchise.formatted_created_at %>
-</time>
-
-<div class="lead my-3">  	
-  <%= sanitize @franchise.description %>
-</div>  
-
-<div class="mb-3">
-  <%= @franchise.user.gravatar %>
-  <%= @franchise.user.name_or_email %>
-</div>  
-
-<div class="border-top border-bottom py-3">
-  <div class="btn-group">
-  <%= link_to 'Show', franchise_path(@franchise.id), class: 'btn btn-primary' %> |
-  <%= link_to 'Edit', edit_franchise_path(@franchise.id), class: 'btn btn-secondary' %> |
-  <%= link_to 'Destroy', franchise_path(@franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %>
+        <div class="btn-group mb-3">
+          <%= link_to 'Apply to this job', "#",
+                class: 'btn btn-dark ' %>
+        </div>
+        
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+          <% if current_user.try(:admin) || franchise_author(@franchise) %>
+            <div class="card-header"><h4>Admin controls:</h4></div>
+              <div class="card-body text-success"> 
+                <p class="card-text"><%= link_to 'Show', franchise_path(@franchise.id), class: 'btn btn-primary' %> |
+                  <%= link_to 'Edit', edit_franchise_path(@franchise.id), class: 'btn btn-secondary' %> |
+                  <%= link_to 'Destroy', franchise_path(@franchise.id),class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}  %></p>
+          <% end %>         
+        </div>
+      </div> 
+    </div>    
   </div>
-</div>  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -5,5 +5,14 @@ class PagesController < ApplicationController
   end
 
   def pricing;
-  end  
+  end 
+
+  def add;
+  end 
+
+  def business_magazine;
+  end 
+
+  def about;
+  end   
 end
